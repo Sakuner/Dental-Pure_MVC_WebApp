@@ -7,4 +7,8 @@
     <RootNamespace>Dental_Pure_Web</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Dental-Pure.Domain\Dental-Pure.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
