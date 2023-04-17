@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Dental_Pure_Web.Models
+namespace Dental_Pure.Entities
 {
     public class StaffModel
     {

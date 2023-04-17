@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dental-Pure.Models\Dental-Pure.Models.csproj" />
+    <ProjectReference Include="..\Dental-Pure.Models\Dental-Pure.Entities.csproj" />
   </ItemGroup>
 
 </Project>

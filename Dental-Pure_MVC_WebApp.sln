@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dental-Pure.DataAccess", "D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dental-Pure.Domain", "Dental-Pure.Domain\Dental-Pure.Domain.csproj", "{0EB82B85-56FC-47F8-BA28-D80AB6924AE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dental-Pure.Models", "Dental-Pure.Models\Dental-Pure.Models.csproj", "{CA7E0685-19F8-407A-8F43-9C5C2B0D0A7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dental-Pure.Entities", "Dental-Pure.Models\Dental-Pure.Entities.csproj", "{CA7E0685-19F8-407A-8F43-9C5C2B0D0A7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
