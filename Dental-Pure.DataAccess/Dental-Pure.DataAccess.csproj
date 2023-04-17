@@ -17,4 +17,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Dental-Pure.Models\Dental-Pure.Models.csproj" />
+  </ItemGroup>
+
 </Project>

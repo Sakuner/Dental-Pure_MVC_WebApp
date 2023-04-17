@@ -1,4 +1,5 @@
 ﻿//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Dental_Pure_Web.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dental_Pure.DataAccess
@@ -10,6 +11,7 @@ namespace Dental_Pure.DataAccess
             
         }
 
-        //public DbSet<ReservationModel> Reservations { get; set; } 
+        public DbSet<ReservationModel> Reservations { get; set; }
+        public DbSet<StaffModel> StaffEmployee { get; set; }
     }
 }
