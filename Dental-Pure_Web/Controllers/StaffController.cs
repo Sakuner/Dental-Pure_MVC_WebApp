@@ -1,4 +1,5 @@
 ﻿using Dental_Pure.DataAccess;
+using Dental_Pure.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dental_Pure_Web.Controllers
@@ -12,7 +13,8 @@ namespace Dental_Pure_Web.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            List<StaffModel> objStaffList = _db.StaffEmployee.ToList();
+            return View(objStaffList);
         }
     }
 }
