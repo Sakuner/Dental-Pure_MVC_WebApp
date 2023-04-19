@@ -4,6 +4,7 @@ using Dental_Pure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dental_Pure.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230418213827_staffToDb")]
+    partial class staffToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -185,7 +188,7 @@ namespace Dental_Pure.DataAccess.Migrations
                             Id = 1,
                             Description = "Specializes in oral and maxillofacial Surgery",
                             Name = "Jean Chan",
-                            PhotoUrl = "\\images\\staff\\doctor1.png",
+                            PhotoUrl = "\\images\\staff\\doctor1",
                             Title = "Doctor of Dental Surgery"
                         },
                         new
@@ -193,7 +196,7 @@ namespace Dental_Pure.DataAccess.Migrations
                             Id = 2,
                             Description = "Specializes in orthodontology",
                             Name = "Kate Smith",
-                            PhotoUrl = "\\images\\staff\\doctor2.png",
+                            PhotoUrl = "\\images\\staff\\doctor2",
                             Title = "Doctor of Dental Medicine"
                         },
                         new
@@ -201,7 +204,7 @@ namespace Dental_Pure.DataAccess.Migrations
                             Id = 3,
                             Description = "Specializes in cosmetic and general dentistry",
                             Name = "George Michael",
-                            PhotoUrl = "\\images\\staff\\doctor3.png",
+                            PhotoUrl = "\\images\\staff\\doctor3",
                             Title = "Doctor of Dental Medicine"
                         });
                 });
