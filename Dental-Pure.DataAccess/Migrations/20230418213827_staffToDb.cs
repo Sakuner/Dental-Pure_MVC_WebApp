@@ -17,9 +17,9 @@ namespace Dental_Pure.DataAccess.Migrations
                 columns: new[] { "Id", "Description", "Name", "PhotoUrl", "Title" },
                 values: new object[,]
                 {
-                    { 1, "Specializes in oral and maxillofacial Surgery", "Jean Chan", "\\images\\staff\\doctor1", "Doctor of Dental Surgery" },
-                    { 2, "Specializes in orthodontology", "Kate Smith", "\\images\\staff\\doctor2", "Doctor of Dental Medicine" },
-                    { 3, "Specializes in cosmetic and general dentistry", "George Michael", "\\images\\staff\\doctor3", "Doctor of Dental Medicine" }
+                    { 1, "Specializes in oral and maxillofacial Surgery", "Jean Chan", "\\images\\staff\\doctor1.png", "Doctor of Dental Surgery" },
+                    { 2, "Specializes in orthodontology", "Kate Smith", "\\images\\staff\\doctor2.png", "Doctor of Dental Medicine" },
+                    { 3, "Specializes in cosmetic and general dentistry", "George Michael", "\\images\\staff\\doctor3.png", "Doctor of Dental Medicine" }
                 });
         }
 

@@ -37,9 +37,9 @@ namespace Dental_Pure.DataAccess
                 new ServiceModel { Id = 13, Name = "Gum excision", Price = 100 }
                 );
             modelBuilder.Entity<StaffModel>().HasData(
-                new StaffModel { Id = 1, Name = "Jean Chan", Description = "Specializes in oral and maxillofacial Surgery", PhotoUrl = @"\images\staff\doctor1", Title = "Doctor of Dental Surgery" },
-                new StaffModel { Id = 2, Name = "Kate Smith", Description = "Specializes in orthodontology", PhotoUrl = @"\images\staff\doctor2", Title = "Doctor of Dental Medicine" },
-                new StaffModel { Id = 3, Name = "George Michael", Description = "Specializes in cosmetic and general dentistry", PhotoUrl = @"\images\staff\doctor3", Title = "Doctor of Dental Medicine" }
+                new StaffModel { Id = 1, Name = "Jean Chan", Description = "Specializes in oral and maxillofacial Surgery", PhotoUrl = @"\images\staff\doctor1.png", Title = "Doctor of Dental Surgery" },
+                new StaffModel { Id = 2, Name = "Kate Smith", Description = "Specializes in orthodontology", PhotoUrl = @"\images\staff\doctor2.png", Title = "Doctor of Dental Medicine" },
+                new StaffModel { Id = 3, Name = "George Michael", Description = "Specializes in cosmetic and general dentistry", PhotoUrl = @"\images\staff\doctor3.png", Title = "Doctor of Dental Medicine" }
                 );
         }
     }

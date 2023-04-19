@@ -18,16 +18,19 @@
             </th>
         </tr>
     </thead>
+    @foreach (var obj in Model.OrderBy(u => u.Id))
+    {
+    <img src="@obj.PhotoUrl" class="card-img-top rounded" />
     <tbody>
-        @foreach (var obj in Model.OrderBy(u => u.Id))
-        {
+        
             <tr>
                 <td width="80%"> @obj.Name</td>
                 @*fix photos*@
-                <img src="@obj.PhotoUrl" class="card-img-top rounded" />
+                
                 <td width="20%"><center>@obj.Title </center></td>
             </tr>
-        }
+        
     </tbody>
+        }
 </table>
 </div>
