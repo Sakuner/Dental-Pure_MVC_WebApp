@@ -6,31 +6,24 @@
 
 
 
-@*test*@
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>
-                Service
-            </th>
-            <th>
-                <center> Pricing starting at</center>
-            </th>
-        </tr>
-    </thead>
-    @foreach (var obj in Model.OrderBy(u => u.Id))
+<div class="row pb-3 ">
+    @foreach (var person in Model)
     {
-    <img src="@obj.PhotoUrl" class="card-img-top rounded" />
-    <tbody>
-        
-            <tr>
-                <td width="80%"> @obj.Name</td>
-                @*fix photos*@
-                
-                <td width="20%"><center>@obj.Title </center></td>
-            </tr>
-        
-    </tbody>
-        }
-</table>
+        <div class="col-4">
+            <div class="row p-2 h-100">
+                <div class="card">
+                    <img src="@person.PhotoUrl" class="card-img-top rounded" style="width:fit-content ; height:450px" />
+                    <div class="card-body">
+                        <div class="pl-1">
+                            <p class="card-title h3 text-primary"><b>@person.Name</b></p>
+                            <p class="card-title h4 text-info">@person.Title</p>
+                        </div>
+                        <div class="pl-1">
+                            <p class="card-title h5 text-info">@person.Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 </div>

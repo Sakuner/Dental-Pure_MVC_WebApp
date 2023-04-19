@@ -11,8 +11,11 @@ namespace Dental_Pure_Web.Controllers
         {
             _db = db;
         }
+
+        //TODO - improve UI for staff photos
         public IActionResult Index()
         {
+
             List<StaffModel> objStaffList = _db.StaffEmployee.ToList();
             return View(objStaffList);
         }
