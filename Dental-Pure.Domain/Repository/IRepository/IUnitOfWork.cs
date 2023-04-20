@@ -8,5 +8,7 @@ namespace Dental_Pure.Domain.Repository.IRepository
 {
     public interface IUnitOfWork
     {
+        IStaffRepository Staff { get; }
+        IReservationRepository Reservation { get; }
     }
 }
