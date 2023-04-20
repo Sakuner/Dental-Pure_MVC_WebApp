@@ -8,6 +8,8 @@ namespace Dental_Pure.Entities
         [Required] 
         public string Name { get; set; }
         [Required]
+        public string Email { get; set; }
+        [Required]
         public DateTime ReservationDate { get; set; }
         [Required]
         public StaffModel AssignedDoctor { get; set; }
