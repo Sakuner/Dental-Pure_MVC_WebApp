@@ -15,7 +15,7 @@ namespace Dental_Pure_Web.Controllers
             _db = db;
             _unitOfWork = unitOfWork;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
             var vm = new ReservationVM();
             vm.StaffList = _unitOfWork.Staff.GetAll().Select(i => new SelectListItem { Text = i.Name,
@@ -26,11 +26,17 @@ namespace Dental_Pure_Web.Controllers
 
         
         [HttpPost]
-        public IActionResult Create(ReservationModel reserve)
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(ReservationVM obj, IFormFile? file)
         {
-
-
-            return View(reserve);
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.Reservation.Add(obj.Reservation);
+                _unitOfWork.Save();
+                return RedirectToAction("Index");
+            }
+            //TODO implement button "remind me", add date validation
+            return View(obj);
         }
     }
 }

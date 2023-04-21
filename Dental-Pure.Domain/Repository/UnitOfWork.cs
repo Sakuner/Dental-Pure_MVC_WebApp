@@ -15,5 +15,10 @@ namespace Dental_Pure.Domain.Repository
         public IStaffRepository Staff { get; private set; }
 
         public IReservationRepository Reservation { get; private set; }
+
+        public void Save()
+        {
+            _db.SaveChanges();
+        }
     }
 }

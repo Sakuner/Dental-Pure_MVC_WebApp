@@ -18,6 +18,12 @@ namespace Dental_Pure.Domain.Repository
             _db = db;
             this.dbSet=db.Set<T>();
         }
+
+        public void Add(T entity)
+        {
+            dbSet.Add(entity);
+        }
+
         public IEnumerable<T> GetAll()
         {
             IQueryable<T> query = dbSet;
