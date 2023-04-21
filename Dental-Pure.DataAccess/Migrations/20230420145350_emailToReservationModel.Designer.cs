@@ -4,6 +4,7 @@ using Dental_Pure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dental_Pure.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230420145350_emailToReservationModel")]
+    partial class emailToReservationModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,32 +185,6 @@ namespace Dental_Pure.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("StaffEmployee");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Specializes in oral and maxillofacial Surgery",
-                            Name = "Jean Chan",
-                            PhotoUrl = "\\images\\staff\\doctor1.png",
-                            Title = "Doctor of Dental Surgery"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Specializes in orthodontology",
-                            Name = "Kate Smith",
-                            PhotoUrl = "\\images\\staff\\doctor2.png",
-                            Title = "Doctor of Dental Medicine"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Specializes in cosmetic and general dentistry",
-                            Name = "George Michael",
-                            PhotoUrl = "\\images\\staff\\doctor3.png",
-                            Title = "Doctor of Dental Medicine"
-                        });
                 });
 
             modelBuilder.Entity("Dental_Pure.Entities.ReservationModel", b =>

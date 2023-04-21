@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dental_Pure.Domain.Repository.IRepository
 {
-    public interface IUnitOfWork
+    public interface IRepository<T> where T : class
     {
-        IStaffRepository Staff { get; }
-        IReservationRepository Reservation { get; }
-        void Save();
+        IEnumerable<T> GetAll();
+        void Add(T entity);
     }
 }
