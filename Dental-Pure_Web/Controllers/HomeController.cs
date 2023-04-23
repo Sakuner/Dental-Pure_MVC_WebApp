@@ -16,7 +16,7 @@ namespace Dental_Pure_Web.Controllers
             _unitOfWork = unitOfWork;
 
         }
-
+        //TODO - fix the frontpage background photo
         public IActionResult Index()
         {
             //main page stuff
