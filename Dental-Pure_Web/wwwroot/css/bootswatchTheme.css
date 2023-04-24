@@ -12599,3 +12599,11 @@ legend {
 .list-group-item .h6 {
     color: inherit;
 }
+
+
+.ignore-layout {
+    position: absolute;
+    width: 500%;
+    margin-left: -200%;
+    padding: 0;
+}
