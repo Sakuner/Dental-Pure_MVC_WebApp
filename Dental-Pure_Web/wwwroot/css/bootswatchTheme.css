@@ -12603,7 +12603,7 @@ legend {
 
 .ignore-layout {
     position: absolute;
-    width: 500%;
-    margin-left: -200%;
+    width: 100%;
+    margin-left: -7.41%;
     padding: 0;
 }
