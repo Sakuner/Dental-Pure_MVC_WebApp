@@ -1,10 +1,11 @@
 ﻿//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Dental_Pure.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Dental_Pure.DataAccess
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -19,7 +20,7 @@ namespace Dental_Pure.DataAccess
         //seeding the database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            base.OnModelCreating(modelBuilder);
             //use bogus next time
             modelBuilder.Entity<ServiceModel>().HasData(
                 new ServiceModel { Id = 1, Name = "Dental examination", Price = 0},

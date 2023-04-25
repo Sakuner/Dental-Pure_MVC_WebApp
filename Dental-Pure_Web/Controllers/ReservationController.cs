@@ -1,11 +1,13 @@
 ﻿using Dental_Pure.DataAccess;
 using Dental_Pure.Domain.Repository.IRepository;
 using Dental_Pure.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Dental_Pure_Web.Controllers
 {
+    //[Authorize]
     public class ReservationController : Controller
     {
         private readonly AppDbContext _db;
