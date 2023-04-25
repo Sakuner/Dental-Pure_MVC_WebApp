@@ -45,7 +45,7 @@ namespace Dental_Pure_Web.Controllers
                 _unitOfWork.Save();
                 return RedirectToAction("Index");
             }
-            //TODO implement button "remind me", add date validation
+            //TODO implement visual validation for user side 
             return View(obj);
         }
     }
