@@ -15,6 +15,7 @@ namespace Dental_Pure.DataAccess
         public DbSet<ReservationModel> Reservations { get; set; }
         public DbSet<StaffModel> StaffEmployee { get; set; }
         public DbSet<ServiceModel> Services { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
 
         //seeding the database
