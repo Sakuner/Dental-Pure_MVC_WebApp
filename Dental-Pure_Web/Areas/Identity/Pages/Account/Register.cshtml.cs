@@ -106,6 +106,13 @@ namespace Dental_Pure_Web.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            if (!_roleManager.RoleExistsAsync(rolesUtility.Role_Employee).GetAwaiter().GetResult())
+            {
+                _roleManager.CreateAsync(new IdentityRole(rolesUtility.Role_Employee)).GetAwaiter().GetResult();
+                _roleManager.CreateAsync(new IdentityRole(rolesUtility.Role_Admin)).GetAwaiter().GetResult();
+
+            }
+
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
