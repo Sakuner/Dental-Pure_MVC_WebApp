@@ -35,6 +35,7 @@ namespace Dental_Pure_Web.Controllers
             return View(reservationList);
         }
 
+        [HttpDelete]
         public IActionResult Delete(int? id)
         {
             var obj = _unitOfWork.Reservation.GetFirstOrDefault(u => u.Id == id);

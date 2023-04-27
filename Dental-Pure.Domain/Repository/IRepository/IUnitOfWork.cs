@@ -10,6 +10,7 @@ namespace Dental_Pure.Domain.Repository.IRepository
     {
         IStaffRepository Staff { get; }
         IReservationRepository Reservation { get; }
+        IServiceRepository Service { get; }
         void Save();
     }
 }
