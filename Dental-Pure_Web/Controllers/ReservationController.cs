@@ -26,6 +26,16 @@ namespace Dental_Pure_Web.Controllers
         }
 
 
+        [Authorize(Roles = rolesUtility.Role_Admin + "," + rolesUtility.Role_Employee)]
+        [HttpGet]
+        public IActionResult BookingList()
+        {
+            //List<ReservationModel> reservationList = _db.Reservations.ToList();
+            var reservationList =  _unitOfWork.Reservation.GetAll(includeProperties:"AssignedDoctor");
+            return View(reservationList);
+        }
+
+
         
         [HttpPost]
         [ValidateAntiForgeryToken]

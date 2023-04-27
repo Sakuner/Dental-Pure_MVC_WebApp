@@ -38,8 +38,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
-                       @* 
-                           @if(User.IsInRole()){
+                       
+                           @if(User.IsInRole(rolesUtility.Role_Admin)){
 
                            <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Managment</a>
@@ -47,12 +47,16 @@
                                 <a class="dropdown-item" href="#">Modify staff</a>
                                 <a class="dropdown-item" href="#">Modify pricing</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Check reservations</a>
+                                <a class="dropdown-item" asp-controller="Reservation" asp-action="BookingList">Check reservations</a>
                             </div>
                         </li>
                         }
+                        @if (User.IsInRole(rolesUtility.Role_Employee))
+                        {
+                            <a class="dropdown-item" href="#">Check reservations</a>
+                        }
 
-                        *@
+                        
                     </ul>
                 </div>
             </div>

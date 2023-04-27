@@ -25,9 +25,13 @@ namespace Dental_Pure.Domain.Repository
             dbSet.Add(entity);
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
+            if (includeProperties != null)
+            {
+                query = query.Include(includeProperties);
+            }
             return query.ToList();
         }
 

@@ -1,0 +1,49 @@
+﻿@using Dental_Pure.Entities;
+@model List<ReservationModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Booking List</h2>
+        </div>
+    </div>
+
+
+
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Patient Name
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    Assigned Doctor
+                </th>
+                <th>
+                    Date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.OrderBy(u => u.ReservationDate))
+            {
+                <tr>
+                    <td width="25%"> @obj.Name</td>
+                    <td width="25%"> @obj.PhoneNumber</td>
+                    <td width="25%"> @obj.AssignedDoctor.Name</td>
+                    <td width="25%"> @obj.ReservationDate</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
