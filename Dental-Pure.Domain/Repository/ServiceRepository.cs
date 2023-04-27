@@ -17,5 +17,10 @@ namespace Dental_Pure.Domain.Repository
         {
             _db = db;
         }
+
+        public void Update(ServiceModel obj)
+        {
+            _db.Services.Update(obj);
+        }
     }
 }

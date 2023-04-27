@@ -1,0 +1,30 @@
+﻿@using Dental_Pure.Entities;
+@model List<StaffModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container p-3">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Service
+                </th>
+                <th>
+                    <center> Pricing starting at</center>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.OrderBy(u => u.Id))
+            {
+                <tr>
+                    <td width="80%"> @obj.Name</td>
+                    <td width="20%"><center> pln</center></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

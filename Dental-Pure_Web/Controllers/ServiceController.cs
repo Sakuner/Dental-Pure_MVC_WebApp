@@ -22,9 +22,14 @@ namespace Dental_Pure_Web.Controllers
         }
 
         [Authorize(Roles = rolesUtility.Role_Admin)]
-        public IActionResult ModifyPricing(int? id, double? price)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ModifyPricing(int? id, string? price)
         {
             var ServiceFromDb = _unitOfWork.Service.GetFirstOrDefault(u => u.Id == id);
+            ServiceFromDb.Price = Convert.ToDouble(price);
+            _unitOfWork.Service.Update(ServiceFromDb);
+            _unitOfWork.Save();
             return RedirectToAction("Index");
         }
     }

@@ -9,5 +9,6 @@ namespace Dental_Pure.Domain.Repository.IRepository
 {
     public interface IServiceRepository : IRepository<ServiceModel>
     {
+        void Update(ServiceModel service);
     }
 }
