@@ -1,0 +1,61 @@
+﻿@using Dental_Pure.Entities;
+@model List<ReservationModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Booking List</h2>
+        </div>
+    </div>
+
+
+
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Patient Name
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    Assigned Doctor
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Delete
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.OrderBy(u => u.ReservationDate))
+            {
+                if (obj.ReservationDate > DateTime.Now.AddHours(-10))
+                {
+                    <tr>
+                        <td width="24%"> @obj.Name</td>
+                        <td width="24%"> @obj.PhoneNumber</td>
+                        <td width="24%"> @obj.AssignedDoctor.Name</td>
+                        <td width="24%"> @obj.ReservationDate</td>
+                        <td width="4%">
+                            <a asp-controller="Reservation" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-primary">
+                                <i class="bi bi-trash-fill"></i> 
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+                
+            }
+        </tbody>
+    </table>
+</div>

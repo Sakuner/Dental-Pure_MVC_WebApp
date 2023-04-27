@@ -38,16 +38,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
-                       @* <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                       
+                           @if(User.IsInRole(rolesUtility.Role_Admin)){
+
+                           <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Managment</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="#">Modify staff</a>
+                                <a class="dropdown-item" href="#">Modify pricing</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
+                                <a class="dropdown-item" asp-controller="Reservation" asp-action="BookingList">Check reservations</a>
                             </div>
-                        </li>*@
+                        </li>
+                        }
+                        @if (User.IsInRole(rolesUtility.Role_Employee))
+                        {
+                            <a class="dropdown-item" href="#">Check reservations</a>
+                        }
+
+                        
                     </ul>
                 </div>
             </div>
@@ -61,7 +70,8 @@
 
     <footer class="border-top footer text-muted bg-primary fixed-bottom">
         <div class="container text-white">
-            &copy; 2023 - Dental-Pure - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - Dental-Pure  <a asp-area="Identity" asp-page="/Account/Login">Admin Panel </a>
+            <partial name="_LoginPartial" />
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

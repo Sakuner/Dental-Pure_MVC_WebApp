@@ -24,10 +24,18 @@ namespace Dental_Pure.Domain.Repository
         {
             dbSet.Add(entity);
         }
+        public void Remove(T entity)
+        {
+            dbSet.Remove(entity);
+        }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
+            if (includeProperties != null)
+            {
+                query = query.Include(includeProperties);
+            }
             return query.ToList();
         }
 

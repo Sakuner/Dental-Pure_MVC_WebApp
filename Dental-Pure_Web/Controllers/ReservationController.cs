@@ -1,11 +1,13 @@
 ﻿using Dental_Pure.DataAccess;
 using Dental_Pure.Domain.Repository.IRepository;
 using Dental_Pure.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Dental_Pure_Web.Controllers
 {
+    //[Authorize]
     public class ReservationController : Controller
     {
         private readonly AppDbContext _db;
@@ -21,6 +23,24 @@ namespace Dental_Pure_Web.Controllers
             vm.StaffList = _unitOfWork.Staff.GetAll().Select(i => new SelectListItem { Text = i.Name,
             Value=i.Id.ToString()});
             return View(vm);
+        }
+
+
+        [Authorize(Roles = rolesUtility.Role_Admin + "," + rolesUtility.Role_Employee)]
+        [HttpGet]
+        public IActionResult BookingList()
+        {
+            //TODO think of a more effective method for filtering date (than 'if' in view)
+            var reservationList =  _unitOfWork.Reservation.GetAll(includeProperties:"AssignedDoctor");
+            return View(reservationList);
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            var obj = _unitOfWork.Reservation.GetFirstOrDefault(u => u.Id == id);
+            _unitOfWork.Reservation.Remove(obj);
+            _unitOfWork.Save();
+            return RedirectToAction("BookingList");
         }
 
 
