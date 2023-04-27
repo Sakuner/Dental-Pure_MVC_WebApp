@@ -12,5 +12,6 @@ namespace Dental_Pure.Domain.Repository.IRepository
         IEnumerable<T> GetAll(string? includeProperties = null);
         T GetFirstOrDefault(Expression<Func<T, bool>> filter);
         void Add(T entity);
+        void Remove(T entity);
     }
 }
