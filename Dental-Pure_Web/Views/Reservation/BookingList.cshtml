@@ -36,13 +36,17 @@
         <tbody>
             @foreach (var obj in Model.OrderBy(u => u.ReservationDate))
             {
-                <tr>
-                    <td width="25%"> @obj.Name</td>
-                    <td width="25%"> @obj.PhoneNumber</td>
-                    <td width="25%"> @obj.AssignedDoctor.Name</td>
-                    <td width="25%"> @obj.ReservationDate</td>
-                    
-                </tr>
+                if (obj.ReservationDate < DateTime.Now.AddHours(-10))
+                {
+                    <tr>
+                        <td width="25%"> @obj.Name</td>
+                        <td width="25%"> @obj.PhoneNumber</td>
+                        <td width="25%"> @obj.AssignedDoctor.Name</td>
+                        <td width="25%"> @obj.ReservationDate</td>
+
+                    </tr>
+                }
+                
             }
         </tbody>
     </table>

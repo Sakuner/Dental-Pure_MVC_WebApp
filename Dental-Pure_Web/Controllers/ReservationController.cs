@@ -30,7 +30,7 @@ namespace Dental_Pure_Web.Controllers
         [HttpGet]
         public IActionResult BookingList()
         {
-            //List<ReservationModel> reservationList = _db.Reservations.ToList();
+            //TODO think of a more effective method for filtering date (than 'if' in view)
             var reservationList =  _unitOfWork.Reservation.GetAll(includeProperties:"AssignedDoctor");
             return View(reservationList);
         }
