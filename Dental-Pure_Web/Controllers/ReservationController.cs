@@ -36,17 +36,17 @@ namespace Dental_Pure_Web.Controllers
             return View(reservationList);
         }
 
-        [HttpDelete]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
         public IActionResult Delete(int? id)
         {
             var obj = _unitOfWork.Reservation.GetFirstOrDefault(u => u.Id == id);
             _unitOfWork.Reservation.Remove(obj);
             _unitOfWork.Save();
+            TempData["success"] = "Removing successfull";
             return RedirectToAction("BookingList");
         }
 
-
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(ReservationVM obj, IFormFile? file)
@@ -65,6 +65,7 @@ namespace Dental_Pure_Web.Controllers
             {
                 _unitOfWork.Reservation.Add(obj.Reservation);
                 _unitOfWork.Save();
+                TempData["success"] = "Booking successfull!";
                 return RedirectToAction("Index");
             }
             else
@@ -74,6 +75,7 @@ namespace Dental_Pure_Web.Controllers
                     Text = i.Name,
                     Value = i.Id.ToString()
                 });
+                TempData["error"] = "Booking unsuccessfull";
                 return View(obj);
             }
             //TODO implement visual validation for user side 

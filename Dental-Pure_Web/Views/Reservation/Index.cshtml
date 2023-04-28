@@ -36,11 +36,11 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputState">Choose date</label> <br />
-            <input asp-for="Reservation.ReservationDate" type="datetime-local" step="1800" min="" max="" >
+            <input asp-for="Reservation.ReservationDate" type="datetime-local" step="1800"  >
             <span asp-validation-for="Reservation.ReservationDate" class="text-danger"></span>
         </div>
     </div>
-    <button type="submit" onclick="return ValidateInput()" class="btn btn-primary">Submit</button>
+    <button type="submit"  class="btn btn-primary">Submit</button>
 
 
 </form>
@@ -50,24 +50,6 @@
     @{
         <partial name="_ValidationScriptsPartial" />
     }
-
-    <script>
-
-        function ValidateInput() {
-            if (document.getElementById("uploadBox").value == "") {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Please choose a different date!',
-                    
-                });
-                return false;
-            }
-            return true;
-
-        }
-    </script>
-
 
 }
 

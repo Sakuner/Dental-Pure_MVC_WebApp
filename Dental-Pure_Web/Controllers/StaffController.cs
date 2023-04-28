@@ -31,6 +31,7 @@ namespace Dental_Pure_Web.Controllers
         public IActionResult ModifyStaff()
         {
             //TODO
+            TempData["success"] = "Staff member added successfully";
             return View();
         }
     }

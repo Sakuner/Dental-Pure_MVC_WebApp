@@ -30,6 +30,7 @@ namespace Dental_Pure_Web.Controllers
             ServiceFromDb.Price = Convert.ToDouble(price);
             _unitOfWork.Service.Update(ServiceFromDb);
             _unitOfWork.Save();
+            TempData["success"] = "Price change successfull";
             return RedirectToAction("Index");
         }
     }
