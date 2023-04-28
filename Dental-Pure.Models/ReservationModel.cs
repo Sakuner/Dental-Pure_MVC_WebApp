@@ -12,6 +12,7 @@ namespace Dental_Pure.Entities
         [Required]
         public string Email { get; set; }
         [Required]
+        [ValidateDateRange]
         public DateTime ReservationDate { get; set; }
         // TODO   test it properly 
         [DisplayName("Assigned doctor")]

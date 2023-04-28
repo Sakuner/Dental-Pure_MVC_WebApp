@@ -4,6 +4,7 @@ using Dental_Pure.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dental_Pure_Web.Controllers
 {
@@ -66,8 +67,17 @@ namespace Dental_Pure_Web.Controllers
                 _unitOfWork.Save();
                 return RedirectToAction("Index");
             }
+            else
+            {
+                obj.StaffList = _unitOfWork.Staff.GetAll().Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.Id.ToString()
+                });
+                return View(obj);
+            }
             //TODO implement visual validation for user side 
-            return View(obj);
+            
         }
     }
 }
