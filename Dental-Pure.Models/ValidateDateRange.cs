@@ -13,7 +13,7 @@ namespace Dental_Pure.Entities
         {
             //TODO improve calendar
             value=(DateTime)value;
-            if ( DateTime.Now.CompareTo(value)>0 && DateTime.Now.AddMonths(2).CompareTo(value)<0)
+            if ( DateTime.Now.CompareTo(value)<0 && DateTime.Now.AddMonths(2).CompareTo(value)>0)
             {
                 return ValidationResult.Success;
             }
