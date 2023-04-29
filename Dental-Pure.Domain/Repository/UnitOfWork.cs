@@ -11,10 +11,12 @@ namespace Dental_Pure.Domain.Repository
             _db = db;
             Reservation = new ReservationRepository(_db);
             Staff = new StaffRepository(_db);
+            Service = new ServiceRepository(_db);
         }
         public IStaffRepository Staff { get; private set; }
 
         public IReservationRepository Reservation { get; private set; }
+        public IServiceRepository Service { get; private set; }
 
         public void Save()
         {

@@ -6,40 +6,70 @@
 
 
 <div class="container p-3">
-<div class="row pt-4">
-    <div class="col-6">
-        <h2 class="text-primary">Service List</h2>
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Service List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Reservation" asp-action="Index" class="btn btn-primary">
+                <i class="bi bi-calendar-event"></i> &nbsp; Book an appointment
+            </a>
+        </div>
     </div>
-    <div class="col-6 text-end">
-        <a asp-controller="Reservation" asp-action="Index" class="btn btn-primary">
-            <i class="bi bi-calendar-event"></i> &nbsp; Book an appointment
-        </a>
-    </div>
-</div>
 
 
 
 
 
-<table class="table table-bordered table-striped">
-    <thead>
-    <tr>
-        <th>
-            Service
-        </th>
-        <th>
-                <center> Pricing starting at</center>
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-        @foreach(var obj in Model.OrderBy(u=>u.Id))
-        {
-        <tr>
-                <td width="80%"> @obj.Name</td>
-                <td width="20%"><center>@obj.Price pln</center></td>
-        </tr>
-        }
-    </tbody>
-</table>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Service
+                </th>
+                <th>
+                    <center> Pricing starting at</center>
+                </th>
+                @if (User.IsInRole(rolesUtility.Role_Admin))
+                {
+                    <th>
+                        Update price
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var obj in Model.OrderBy(u => u.Id))
+            {
+                <tr>
+
+                    @if (User.IsInRole(rolesUtility.Role_Admin))
+                    {
+                        <td width="65%"> @obj.Name</td>
+                        <td width="20%"><center>@obj.Price pln</center></td>
+                        <td width="15%">
+                            <form method="post" asp-action="ModifyPricing" asp-route-id="@obj.Id" asp-route-price="price" enctype="multipart/form-data">
+                                <div class="input-group ">
+                                    <input type="text" name="price" class="form-control" value="@obj.Price">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
+
+                    }
+                    else
+                    {
+                        <td width="80%"> @obj.Name</td>
+                        <td width="20%"><center>@obj.Price pln</center></td>
+                    }
+
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
 </div>

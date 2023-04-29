@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Dental_Pure_Web.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
 
     
 
@@ -44,8 +46,8 @@
                            <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Managment</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Modify staff</a>
-                                <a class="dropdown-item" href="#">Modify pricing</a>
+                                <a class="dropdown-item" asp-controller="Staff" asp-action="ModifyStaff">Modify staff</a>
+                                <a class="dropdown-item" asp-controller="Service" asp-action="">Modify pricing</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" asp-controller="Reservation" asp-action="BookingList">Check reservations</a>
                             </div>
@@ -64,6 +66,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            <partial name="_Notification" />
             @RenderBody()
         </main>
     </div>
@@ -77,6 +80,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 
 
