@@ -6,25 +6,58 @@
 
 
 <div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Modify staff</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Staff" asp-action="AddStaff" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp; Add new staff member
+            </a>
+        </div>
+    </div>
+
+
+
+
+
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>
-                    Service
+                    Name
                 </th>
                 <th>
-                    <center> Pricing starting at</center>
+                    Description
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Delete
                 </th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var obj in Model.OrderBy(u => u.Id))
+            @foreach (var obj in Model)
             {
                 <tr>
-                    <td width="80%"> @obj.Name</td>
-                    <td width="20%"><center> pln</center></td>
+                    <td width="15%"> @obj.Name</td>
+                    <td width="46%"> @obj.Description</td>
+                    <td width="35%"> @obj.Title</td>
+                    <td width="4%">
+                        <a asp-controller="Staff" asp-action="DeleteStaff" asp-route-id="@obj.Id" class="btn btn-primary">
+                            <i class="bi bi-trash-fill"></i>
+                        </a>
+                    </td>
+
                 </tr>
             }
         </tbody>
     </table>
+
+    
+    
+
+
 </div>

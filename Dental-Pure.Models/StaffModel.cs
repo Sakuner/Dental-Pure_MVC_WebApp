@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dental_Pure.Entities
 {
@@ -12,6 +13,7 @@ namespace Dental_Pure.Entities
         [Required]
         public string Title { get; set; }
         [Required]
+        [ValidateNever]
         public string PhotoUrl { get; set; }
     }
 }

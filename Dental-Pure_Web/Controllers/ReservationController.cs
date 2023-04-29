@@ -36,6 +36,7 @@ namespace Dental_Pure_Web.Controllers
             return View(reservationList);
         }
 
+
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         public IActionResult Delete(int? id)
