@@ -79,7 +79,7 @@ namespace Dental_Pure_Web.Controllers
                 TempData["error"] = "Booking unsuccessfull";
                 return View(obj);
             }
-            //TODO implement visual validation for user side 
+            
             
         }
     }
